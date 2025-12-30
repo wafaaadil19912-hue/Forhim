@@ -17,11 +17,6 @@
         }
         .page {
             display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -71,11 +66,13 @@
             transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
         /* Page 2 Story */
         #page2 .story-text {
             opacity: 0;
             animation: fadeIn 2s ease-in-out 0.5s forwards;
         }
+
         /* Page 3: Why I Love You */
         .image-reasons {
             display: grid;
@@ -118,6 +115,7 @@
             transform: translateY(-10px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
+
         /* Page 4 Wishes */
         #page4 .wishes-text {
             font-style: italic;
@@ -126,6 +124,7 @@
             max-width: 90%;
             word-wrap: break-word;
         }
+
         /* Page 5 Memories */
         .memories {
             display: flex;
@@ -161,34 +160,39 @@
         .memory-item:hover .caption {
             display: block;
         }
-        /* Page 6: Love Note */
+
+        /* Page 6: Final Love Note */
         #page6 {
             background: linear-gradient(135deg, #ffe6f0, #fff5e6);
             overflow-y: auto;
-        }
-        .love-note {
-            font-size: clamp(0.8rem, 3.5vw, 1rem);
-            line-height: 1.4;
-            max-width: 90%;
-            width: 100%;
-            text-align: left;
-            animation: fadeIn 2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 30px 15px;
             box-sizing: border-box;
         }
-        .love-note p {
+        #page6 .love-note {
+            max-width: 600px;
+            width: 100%;
+            font-size: clamp(0.8rem, 3.5vw, 1rem);
+            line-height: 1.5;
+            text-align: left;
+            animation: fadeIn 2s ease-in-out;
+        }
+        #page6 .love-note p {
             margin: 10px 0;
         }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fall {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
+            to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .page { padding: 15px; }
@@ -204,19 +208,20 @@
             p, .subtext { margin: 15px 0; }
             button { padding: 12px 25px; font-size: 1rem; }
             .image-card img { height: 120px; }
-            .love-note { font-size: 0.9rem; }
+            #page6 .love-note { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Page 1: Landing -->
+
+    <!-- Page 1 -->
     <div id="page1" class="page active">
         <h1>Happiest Birthday to The Love of my Life🤴🏽</h1>
         <p class="subtext">This is Made by Me As a Gift Coz mery ko sirf yahi ata hy😁</p>
         <button onclick="navigateTo(2)">Click Karain Mohteram!</button>
     </div>
 
-    <!-- Page 2: Our Story -->
+    <!-- Page 2 -->
     <div id="page2" class="page">
         <h1>Our Story</h1>
         <p class="story-text">Bari simple si story hy hamari to😉 waisy kahan kb insaan kisi ka naseeb bn jata hy pata hi nahi chlta 😊
@@ -228,7 +233,7 @@
         <button onclick="navigateTo(3)">Ain naaaa!</button>
     </div>
 
-    <!-- Page 3: Why I Love You -->
+    <!-- Page 3 -->
     <div id="page3" class="page">
         <h1>Why I Love You</h1>
         <div class="image-reasons">
@@ -248,14 +253,14 @@
         <button onclick="navigateTo(4)">Abhi or Bhi hyy!</button>
     </div>
 
-    <!-- Page 4: Birthday Wishes -->
+    <!-- Page 4 -->
     <div id="page4" class="page">
         <h1>My Wishes for You</h1>
         <p class="wishes-text" id="wishes-text"></p>
         <button onclick="navigateTo(5)">Kuch khas BS apky liya😘</button>
     </div>
 
-    <!-- Page 5: Memories -->
+    <!-- Page 5 -->
     <div id="page5" class="page">
         <h1>Hamari Pyari Pyari Thori Si Memories</h1>
         <div class="memories">
@@ -268,7 +273,7 @@
         <button onclick="navigateTo(6)">Chalain click karain mazy bd main lijiya ga</button>
     </div>
 
-    <!-- Page 6: Final Love Note -->
+    <!-- Page 6 -->
     <div id="page6" class="page">
         <h1>A message full of my love for you</h1>
         <div class="love-note">
@@ -278,7 +283,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT -->
     <script>
         // Page Navigation
         function navigateTo(pageNum) {
